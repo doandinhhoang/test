@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thư viện ảnh</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>📷 Thư viện ảnh</h1>
+  <nav>
+    <button class="tab active" data-view="photos">Tất cả ảnh <span id="cntPhotos"></span></button>
+    <button class="tab" data-view="albums">Album <span id="cntAlbums"></span></button>
+  </nav>
+  <div class="actions">
+    <input id="search" type="search" placeholder="Tìm theo tên ảnh…">
+    <button id="btnUpload" class="primary">⬆ Tải ảnh lên</button>
+    <input id="fileInput" type="file" accept="image/*" multiple hidden>
+  </div>
+</header>
+
+<div id="selbar" class="selbar" hidden>
+  <span id="selCount"></span>
+  <button id="btnSelAll">Chọn tất cả</button>
+  <button id="btnToAlbum" class="primary">＋ Thêm vào album</button>
+  <button id="btnRemoveFromAlbum" hidden>Xóa khỏi album</button>
+  <button id="btnSetCover" hidden>Đặt làm ảnh bìa</button>
+  <button id="btnDelete" class="danger">🗑 Xóa ảnh</button>
+  <button id="btnClearSel">Bỏ chọn</button>
+</div>
+
+<main>
+  <div id="albumHead" class="albumhead" hidden>
+    <button id="btnBack">← Album</button>
+    <h2 id="albumTitle"></h2>
+    <button id="btnRename">Đổi tên</button>
+    <button id="btnDelAlbum" class="danger">Xóa album</button>
+  </div>
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty" hidden></div>
+</main>
+
+<div id="drop" class="drop" hidden>Thả ảnh vào đây để tải lên</div>
+
+<div id="lightbox" class="lightbox" hidden>
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-nav prev" id="lbPrev">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav next" id="lbNext">›</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" id="dlgForm">
+    <h3 id="dlgTitle"></h3>
+    <div id="dlgBody"></div>
+    <menu>
+      <button value="cancel" type="button" id="dlgCancel">Hủy</button>
+      <button value="ok" class="primary" id="dlgOk">OK</button>
+    </menu>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
